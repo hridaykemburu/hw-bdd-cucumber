@@ -37,5 +37,7 @@ end
 
 Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
-  fail "Unimplemented"
+  movies = Movie.all
+  page.should have_css("table#movies tbody tr", :count => movies.length)
+  #ail "Unimplemented"
 end
