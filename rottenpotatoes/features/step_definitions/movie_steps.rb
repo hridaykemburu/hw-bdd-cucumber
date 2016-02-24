@@ -14,7 +14,7 @@ end
 Then /I should see "(.*)" before "(.*)"/ do |e1, e2|
   #  ensure that that e1 occurs before e2.
   #  page.body is the entire content of the page as a string.
-  fail "Unimplemented"
+  page.body =~ /#{e1}.*#{e2}/m
 end
 
 # Make it easier to express checking or unchecking several boxes at once
@@ -39,5 +39,4 @@ Then /I should see all the movies/ do
   # Make sure that all the movies in the app are visible in the table
   movies = Movie.all
   page.should have_css("table#movies tbody tr", :count => movies.length)
-  #ail "Unimplemented"
 end
